@@ -1,8 +1,8 @@
-import { expect, Locator } from "@playwright/test";
+import type { Locator } from "@playwright/test";
+import { expect } from "@playwright/test";
 import chalk from "chalk";
-import { Page } from "playwright";
-import {
-  ClickOn,
+import type { Page } from "playwright";
+import type {
   ExpectAttribute,
   ExpectTextWithLocator,
   Fill,
@@ -52,8 +52,6 @@ export const goTo = async (page: Page, value: any) => {
 };
 
 export const clickOn = async (page: Page, value: any) => {
-  const clickOnDataObject = value as ClickOn;
-
   if (typeof value === "string") {
     await page.click(value);
     logStepSuccess(`clickOn ${value}`);

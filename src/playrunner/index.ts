@@ -1,5 +1,4 @@
 import { chromium } from "playwright";
-import fs from "fs";
 import {
   clickOn,
   expectTitle,
@@ -16,13 +15,13 @@ import chalk from "chalk";
 
 export const runFlow = async (yamlString: string) => {
   // Load the flow from yaml into a javascript object using js-yaml
-  let data = yaml.load(yamlString);
+  const data = yaml.load(yamlString);
 
   // Start the browser and create a new page
   const browser = await chromium.launch(); // Or 'firefox' or 'webkit'.
   const page = await browser.newPage();
 
-  const steps = data as Object[];
+  const steps = data as object[];
 
   // Loop through the flow and execute the commands
   for (const step of steps) {
