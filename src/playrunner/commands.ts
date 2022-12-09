@@ -1,7 +1,7 @@
 import type { Locator } from "@playwright/test";
 import { expect } from "@playwright/test";
 import chalk from "chalk";
-import type { Page } from "playwright";
+import type { Page } from "playwright-core";
 import type {
   ExpectAttribute,
   ExpectTextWithLocator,

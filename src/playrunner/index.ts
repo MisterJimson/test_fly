@@ -1,4 +1,3 @@
-import { chromium } from "playwright";
 import {
   clickOn,
   expectTitle,
@@ -12,13 +11,20 @@ import {
 import yaml from "js-yaml";
 import { hasOwnProperty } from "./yaml-helpers";
 import chalk from "chalk";
+import chromium from 'chrome-aws-lambda';
+import playwright from 'playwright-core';
 
 export const runFlow = async (yamlString: string) => {
   // Load the flow from yaml into a javascript object using js-yaml
   const data = yaml.load(yamlString);
 
   // Start the browser and create a new page
-  const browser = await chromium.launch(); // Or 'firefox' or 'webkit'.
+  const browser = await playwright.chromium.launch({
+    args: chromium.args,
+    executablePath: await chromium.executablePath ?? undefined,
+    headless: true,
+  });
+
   const page = await browser.newPage();
 
   const steps = data as object[];
