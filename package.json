@@ -6,7 +6,7 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "npx playwright install && next start"
+    "start": "next start"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.16.0",
