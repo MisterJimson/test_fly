@@ -6,7 +6,8 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "vercel-build": "npx playwright install"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.16.0",
